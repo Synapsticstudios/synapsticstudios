@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SYNAPSTIC STUDIOS</title>
+  <meta name="description" content="Designing minimal, reliable products that blend art, logic and emotion." />
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --fg: #e9edf1;
+      --muted: #a8b0bb;
+      --radius: 18px;
+      --pad: clamp(16px, 2.5vw, 28px);
+      --max: 860px;
+    }
+    html, body { height: 100%; margin: 0; }
+    *{ box-sizing: border-box; }
+    body{
+      font: 400 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg); background: var(--bg);
+      display:grid; place-items:center;
+      overflow:hidden;
+    }
+    .backdrop{
+      position:fixed; inset:-20vmax;
+      background:
+        radial-gradient(12vmax 12vmax at var(--mx,50%) var(--my,50%), var(--c1, rgba(0,0,0,0)) 0%, transparent 50%),
+        radial-gradient(8vmax 8vmax at calc(100% - var(--mx,50%)) calc(100% - var(--my,50%)), var(--c2, rgba(0,0,0,0)) 0%, transparent 45%),
+        linear-gradient(#07070a, #0b0c10);
+      filter: saturate(1) contrast(1.03);
+      transition: background-position .2s ease;
+      pointer-events:none;
+      z-index:0;
+    }
+    main{
+      position:relative;
+      z-index:1;
+      width:min(100%, var(--max));
+      padding: var(--pad);
+      text-align:center;
+    }
+    header{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .logo-wrap{
+      width:80px;
+      height:80px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(135deg, #b08d57, #d4af37);
+      cursor:pointer;
+      margin-bottom: 12px;
+    }
+    .brand{
+      width:min(90%, 720px);
+      height:auto;
+      display:block;
+      margin:6vh auto 0;
+    }
+    .tag{
+      color: var(--muted);
+      margin: 32px auto 8px;
+      font-size: clamp(14px, 2.2vw, 16px);
+      max-width:60ch;
+    }
+    .links{
+      margin-top:26px;
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .icon-link{
+      display:inline-grid;
+      place-items:center;
+      width:44px;
+      height:44px;
+      text-decoration:none;
+    }
+    .icon-link svg{
+      width:28px;
+      height:28px;
+      fill:#d4af37;
+      opacity:.95;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+    .icon-link:hover svg{
+      transform:translateY(-1px);
+      opacity:1;
+    }
+    .blurb{
+      margin-top:18px;
+      color: var(--muted);
+      max-width:60ch;
+    }
+    footer{
+      margin-top:18px;
+      opacity:.6;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <main>
+    <header>
+      <button class="logo-wrap" id="logo" aria-label="Logo">
+        <img src="images/logo/Synapstic Logo Black No BG 1.0.png" alt="Synapstic hex logo" width="50" height="50" />
+      </button>
+      <img class="brand" src="images/logo/Synapstic Studios Black No BG 1.0.png" alt="Synapstic Studios" />
+      <p class="tag">Designing minimal, reliable experiences across physical & digital. Available for collaborations.</p>
+      <div class="links" aria-label="Primary links">
+        <a class="icon-link" href="mailto:you@domain.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d='M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.2-.5 7.3 5 7.3-5H4.2Zm15.3 2.1-8 5.5-8-5.5V17.5c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V8.1Z'/></svg>
+        </a>
+        <a class="icon-link" href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z'/></svg>
+        </a>
+        <a class="icon-link" href="https://tiktok.com/@yourhandle" target='_blank' rel='noopener' aria-label='TikTok'>
+          <svg viewBox='0 0 24 24'><path d='M14 3h2.1c.25 1.3 1.1 2.6 2.3 3.4A6.7 6.7 0 0 0 21 7v2a8.1 8.1 0 0 1-4.7-1.6v6.6a5.5 5.5 0 1 1-5.5-5.5c.4 0 .8.04 1.2.12V11a3.5 3.5 0 1 0 2.5 3.36V3Z'/></svg>
+        </a>
+      </div>
+      <p class='blurb'>Small studio mindset; engineering discipline. I like clean forms, honest materials, and playful interactions that reward curiosity.</p>
+      <footer>© <span id='y'></span> SYNAPSTIC STUDIOS</footer>
+    </header>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const y=document.getElementById('y');if(y)y.textContent=new Date().getFullYear();
+    });
+    const root=document.documentElement;
+    const palette=['#0097a7','#3366ff','#ff4b5c','#32cd32','#7e57c2','#ff8c1a'];
+    window.addEventListener('mousemove',e=>{
+      const x=(e.clientX/window.innerWidth)*100;
+      const y=(e.clientY/window.innerHeight)*100;
+      root.style.setProperty('--mx',x+'%');
+      root.style.setProperty('--my',y+'%');
+      const idx=Math.floor((e.clientX/window.innerWidth)*(palette.length-1));
+      const next=(idx+1)%palette.length;
+      const a=0.03,b=0.02;
+      const c1=hexToRgba(palette[idx],a);
+      const c2=hexToRgba(palette[next],b);
+      root.style.setProperty('--c1',c1);
+      root.style.setProperty('--c2',c2);
+    });
+    function hexToRgba(hex,alpha){
+      const n=hex.replace('#','');
+      const bigint=parseInt(n,16);
+      const r=(bigint>>16)&255;
+      const g=(bigint>>8)&255;
+      const b=bigint&255;
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+  </script>
+</body>
+</html>
